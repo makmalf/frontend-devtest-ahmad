@@ -1,7 +1,7 @@
 <template>
     <div class="homepage">
         <v-container v-if="!posts" class="loader-container d-flex justify-center align-center">
-                    <v-progress-circular color="primary" indeterminate class="text-center" size="70"></v-progress-circular>
+            <v-progress-circular color="primary" indeterminate class="text-center" size="70"></v-progress-circular>
         </v-container>
         <v-container v-else>
             <v-row>
@@ -19,23 +19,22 @@ import Card from "../components/Card.vue"
 
 export default {
     mounted() {
-       axios.get("https://jsonplaceholder.typicode.com/posts").then((res) => (this.posts = res.data))
+        axios.get("https://jsonplaceholder.typicode.com/posts").then((res) => (this.posts = res.data))
     },
     data() {
         return {
-
-        posts: null
-            }
+            posts: null,
+        }
     },
     components: { Card },
 }
 </script>
 
 <style>
-    .loader-container {
-        min-height: 100vh;
-        }
-    .card-item:nth-child(even) {
+.loader-container {
+    min-height: 100vh;
+}
+.card-item:nth-child(even) {
     background-color: #eee;
-        }
+}
 </style>
